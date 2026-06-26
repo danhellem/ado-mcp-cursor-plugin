@@ -1,0 +1,14 @@
+{
+  "name": "azure-devops-mcp-server",
+  "displayName": "Azure DevOps MCP Server",
+  "version": "0.1.0",
+  "description": "Connect Cursor to Azure DevOps with MCP access to repositories, work items, pipelines, test plans, pull requests, wikis, and more in one place.",
+  "author": {
+    "name": "Azure DevOps",
+    "email": "dahellem@microsoft.com"
+  },
+  "homepage": "https://learn.microsoft.com/en-us/azure/devops/mcp-server/remote-mcp-server",
+  "license": "MIT",
+  "keywords": ["cursor", "plugin", "skills", "azure devops", "mcp"],
+  "logo": "assets/logo.png"
+}
