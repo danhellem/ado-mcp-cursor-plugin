@@ -1,34 +1,65 @@
-# Cursor plugin template
+# Azure DevOps MCP Cursor Plugin
 
-Build and publish Cursor Marketplace plugins from a single repo.
+This repository contains a single Cursor plugin that helps users work with Azure DevOps through the Azure DevOps MCP Server.
 
-Two starter plugins are included:
+## What this plugin provides
 
-- **starter-simple**: rules and skills only
-- **starter-advanced**: rules, skills, agents, commands, hooks, MCP, and scripts
+- Plugin manifest and metadata for Cursor Marketplace packaging.
+- Skills for working with Azure DevOps work items and iterations.
+- Branding assets and helper scripts used in this repository.
 
-## Getting started
+## Repository structure
 
-[Use this template](https://github.com/cursor/plugin-template/generate) to create a new repository, then customize:
+```text
+.
+|-- .cursor-plugin/
+|   |-- plugin.json
+|-- assets/
+|   |-- logo.png
+|-- docs/
+|   |-- add-a-plugin.md
+|-- scripts/
+|   |-- validate-template.mjs
+`-- skills/
+    |-- boards-my-work/
+    |   `-- SKILL.md
+    `-- work-iterations/
+        `-- SKILL.md
+```
 
-1. `.cursor-plugin/marketplace.json`: set marketplace `name`, `owner`, and `metadata`.
-2. `plugins/*/.cursor-plugin/plugin.json`: set `name` (lowercase kebab-case), `displayName`, `author`, `description`, `keywords`, `license`, and `version`.
-3. Replace placeholder rules, skills, agents, commands, hooks, scripts, and logos.
+## Plugin details
 
-To add more plugins, see `docs/add-a-plugin.md`.
+The plugin metadata is defined in `.cursor-plugin/plugin.json`:
 
-## Single plugin vs multi-plugin
+- Name: `azure-devops-mcp-server`
+- Display name: `Azure DevOps MCP Server`
+- Homepage: `https://learn.microsoft.com/en-us/azure/devops/mcp-server/remote-mcp-server`
 
-This template defaults to **multi-plugin** (multiple plugins in one repo).
+## Included skills
 
-For a **single plugin**, move your plugin folder contents to the repository root, keep one `.cursor-plugin/plugin.json`, and remove `.cursor-plugin/marketplace.json`.
+`skills/boards-my-work/SKILL.md` defines a workflow to:
 
-## Submission checklist
+1. Determine the target Azure DevOps project.
+2. Retrieve the current user's work items with `wit_work_item` using `action: my`.
+3. Fetch detailed fields in batch with `wit_work_item` using `action: get_batch`.
+4. Render grouped, sorted results with clickable work item links.
 
-- Each plugin has a valid `.cursor-plugin/plugin.json`.
-- Plugin names are unique, lowercase, and kebab-case.
-- `.cursor-plugin/marketplace.json` entries map to real plugin folders.
-- All frontmatter metadata is present in rule, skill, agent, and command files.
-- Logos are committed and referenced with relative paths.
-- `node scripts/validate-template.mjs` passes.
-- Repository link is ready for submission to the Cursor team (Slack or `kniparko@anysphere.com`).
+`skills/work-iterations/SKILL.md` defines a workflow to:
+
+1. Resolve project and optional team context.
+2. List project iterations with `work` using `action: list_iterations`.
+3. List team iterations with `work` using `action: list_team_iterations`.
+4. Create and assign iterations with `work_iteration_write` using `action: create` and `action: assign`.
+
+## Local validation
+
+Run the validation script from the repo root:
+
+```bash
+node scripts/validate-template.mjs
+```
+
+## Notes
+
+- This repository is currently structured as a single plugin at the root.
+- The guide in `docs/add-a-plugin.md` is available if you later expand to a multi-plugin layout.
