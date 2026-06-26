@@ -1,14 +1,14 @@
-# Azure DevOps MCP Cursor Plugin
+# 🚀 Azure DevOps MCP Cursor Plugin
 
 This repository contains a single Cursor plugin that helps users work with Azure DevOps through the Azure DevOps MCP Server.
 
-## What this plugin provides
+## ✨ What this plugin provides
 
 - Plugin manifest and metadata for Cursor Marketplace packaging.
 - Skills for working with Azure DevOps work items and iterations.
 - Branding assets and helper scripts used in this repository.
 
-## Repository structure
+## 🗂️ Repository structure
 
 ```text
 .
@@ -27,7 +27,7 @@ This repository contains a single Cursor plugin that helps users work with Azure
         `-- SKILL.md
 ```
 
-## Plugin details
+## 📦 Plugin details
 
 The plugin metadata is defined in `.cursor-plugin/plugin.json`:
 
@@ -35,7 +35,7 @@ The plugin metadata is defined in `.cursor-plugin/plugin.json`:
 - Display name: `Azure DevOps MCP Server`
 - Homepage: `https://learn.microsoft.com/en-us/azure/devops/mcp-server/remote-mcp-server`
 
-## Included skills
+## 🧠 Included skills
 
 `skills/boards-my-work/SKILL.md` defines a workflow to:
 
@@ -51,7 +51,7 @@ The plugin metadata is defined in `.cursor-plugin/plugin.json`:
 3. List team iterations with `work` using `action: list_team_iterations`.
 4. Create and assign iterations with `work_iteration_write` using `action: create` and `action: assign`.
 
-## Local validation
+## ✅ Local validation
 
 Run the validation script from the repo root:
 
@@ -59,7 +59,7 @@ Run the validation script from the repo root:
 node scripts/validate-template.mjs
 ```
 
-## Notes
+## 📝 Notes
 
 - This repository is currently structured as a single plugin at the root.
 - The guide in `docs/add-a-plugin.md` is available if you later expand to a multi-plugin layout.
